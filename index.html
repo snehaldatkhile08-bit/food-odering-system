@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foodie - Online Food Ordering</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">🍔 Foodie</div>
+    <nav><a href="#menu">Menu</a><a href="#about">About</a></nav>
+    <button class="cart-button" id="cart-toggle">🛒 Cart <span id="cart-count">0</span></button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">FRESH • FAST • DELICIOUS</p>
+        <h1>Your favourite food,<br><span>delivered to you.</span></h1>
+        <p>Explore tasty meals from our kitchen and order in a few clicks.</p>
+        <a class="primary-link" href="#menu">Explore menu</a>
+      </div>
+      <div class="hero-art" aria-label="Burger illustration">🍔</div>
+    </section>
+
+    <section class="menu-section" id="menu">
+      <div class="section-heading">
+        <div><p class="eyebrow">OUR MENU</p><h2>Popular dishes</h2></div>
+        <input id="search" type="search" placeholder="Search food..." aria-label="Search food">
+      </div>
+      <div class="filters" id="filters">
+        <button class="filter active" data-category="All">All</button>
+        <button class="filter" data-category="Burger">Burgers</button>
+        <button class="filter" data-category="Pizza">Pizza</button>
+        <button class="filter" data-category="Indian">Indian</button>
+        <button class="filter" data-category="Drinks">Drinks</button>
+      </div>
+      <div class="food-grid" id="food-grid"></div>
+    </section>
+
+    <section class="about" id="about">
+      <h2>Good food. Good mood.</h2>
+      <p>Demo project for an online food ordering system. Add items to your cart and try the sample checkout.</p>
+    </section>
+  </main>
+
+  <aside class="cart-panel" id="cart-panel" aria-label="Shopping cart">
+    <div class="cart-heading"><h2>Your cart</h2><button id="close-cart" class="icon-button" aria-label="Close cart">✕</button></div>
+    <div id="cart-items" class="cart-items"><p class="empty">Your cart is empty.</p></div>
+    <div class="cart-footer">
+      <div class="total-row"><span>Total</span><strong id="cart-total">₹0</strong></div>
+      <button id="checkout" class="primary-button" disabled>Proceed to checkout</button>
+      <p class="small-note">Demo only — no real payment is collected.</p>
+    </div>
+  </aside>
+  <div class="overlay" id="overlay"></div>
+
+  <div class="modal hidden" id="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
+    <div class="modal-card">
+      <button id="close-modal" class="icon-button modal-close" aria-label="Close checkout">✕</button>
+      <p class="eyebrow">ALMOST THERE</p>
+      <h2 id="checkout-title">Delivery details</h2>
+      <form id="checkout-form">
+        <label>Full name<input name="name" required placeholder="Your name"></label>
+        <label>Phone number<input name="phone" required inputmode="tel" pattern="[0-9+() -]{8,}" placeholder="Your phone number"></label>
+        <label>Delivery address<textarea name="address" required rows="3" placeholder="House / street / city"></textarea></label>
+        <label>Payment method<select name="payment"><option>Cash on delivery</option><option>UPI (demo only)</option></select></label>
+        <button class="primary-button" type="submit">Place demo order</button>
+      </form>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <footer>© 2026 Foodie Demo · Built with HTML, CSS and JavaScript</footer>
+  <script src="script.js"></script>
+</body>
+</html>
